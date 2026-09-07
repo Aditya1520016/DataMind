@@ -1,0 +1,51 @@
+order_id,product_name,category,quantity,unit_price,total_revenue,discount_pct,customer_region,sales_rep,order_date,customer_segment,return_flag
+1001,Wireless Headphones,Electronics,2,89.99,179.98,10,North America,Alice Johnson,2024-01-05,Enterprise,No
+1002,Office Chair,Furniture,1,299.99,299.99,0,Europe,Bob Smith,2024-01-06,SMB,No
+1003,USB-C Hub,Electronics,5,34.99,174.95,5,Asia Pacific,Carol White,2024-01-07,Consumer,No
+1004,Standing Desk,Furniture,1,649.99,649.99,15,North America,Dave Brown,2024-01-08,Enterprise,No
+1005,Laptop Stand,Electronics,3,49.99,149.97,0,Europe,Alice Johnson,2024-01-09,SMB,No
+1006,Mechanical Keyboard,Electronics,2,129.99,259.98,8,North America,Bob Smith,2024-01-10,Consumer,No
+1007,Monitor Arm,Accessories,4,79.99,319.96,0,Asia Pacific,Carol White,2024-01-11,Enterprise,No
+1008,Webcam HD,Electronics,6,69.99,419.94,12,North America,Dave Brown,2024-01-12,SMB,No
+1009,Desk Lamp,Accessories,2,39.99,79.98,0,Europe,Alice Johnson,2024-01-13,Consumer,No
+1010,External SSD,Electronics,3,89.99,269.97,5,North America,Bob Smith,2024-01-14,Enterprise,No
+1011,Ergonomic Mouse,Electronics,4,59.99,239.96,0,Asia Pacific,Carol White,2024-01-15,SMB,No
+1012,Cable Management,Accessories,10,19.99,199.90,0,North America,Dave Brown,2024-01-16,Consumer,No
+1013,Noise Cancelling Earbuds,Electronics,2,149.99,299.98,20,Europe,Alice Johnson,2024-01-17,Enterprise,No
+1014,Adjustable Monitor,Electronics,1,449.99,449.99,10,North America,Bob Smith,2024-01-18,SMB,No
+1015,Phone Stand,Accessories,8,15.99,127.92,0,Asia Pacific,Carol White,2024-01-19,Consumer,No
+1016,Smart Speaker,Electronics,3,79.99,239.97,5,North America,Dave Brown,2024-01-20,Enterprise,No
+1017,Bookshelf,Furniture,1,199.99,199.99,0,Europe,Alice Johnson,2024-01-21,SMB,No
+1018,Drawing Tablet,Electronics,2,299.99,599.98,15,North America,Bob Smith,2024-01-22,Consumer,No
+1019,Blue Light Glasses,Accessories,5,29.99,149.95,0,Asia Pacific,Carol White,2024-01-23,Enterprise,No
+1020,Gaming Chair,Furniture,1,499.99,499.99,8,North America,Dave Brown,2024-01-24,SMB,No
+1021,Portable Charger,Electronics,7,44.99,314.93,0,Europe,Alice Johnson,2024-01-25,Consumer,No
+1022,Desk Organizer,Accessories,4,24.99,99.96,0,North America,Bob Smith,2024-01-26,Enterprise,No
+1023,Smart Watch,Electronics,2,199.99,399.98,12,Asia Pacific,Carol White,2024-01-27,SMB,No
+1024,Filing Cabinet,Furniture,1,349.99,349.99,5,North America,Dave Brown,2024-01-28,Consumer,No
+1025,Wireless Charger,Electronics,6,34.99,209.94,0,Europe,Alice Johnson,2024-01-29,Enterprise,No
+1026,Laptop Bag,Accessories,3,59.99,179.97,0,North America,Bob Smith,2024-01-30,SMB,No
+1027,4K Monitor,Electronics,1,699.99,699.99,20,Asia Pacific,Carol White,2024-01-31,Consumer,No
+1028,Whiteboard,Accessories,2,89.99,179.98,0,North America,Dave Brown,2024-02-01,Enterprise,No
+1029,Coffee Maker,Appliances,1,79.99,79.99,0,Europe,Alice Johnson,2024-02-02,SMB,No
+1030,Shredder,Appliances,1,129.99,129.99,5,North America,Bob Smith,2024-02-03,Consumer,No
+1031,Webcam 4K,Electronics,3,99.99,299.97,8,Asia Pacific,Carol White,2024-02-04,Enterprise,No
+1032,Keyboard Wrist Rest,Accessories,6,19.99,119.94,0,North America,Dave Brown,2024-02-05,SMB,No
+1033,Ring Light,Electronics,4,49.99,199.96,10,Europe,Alice Johnson,2024-02-06,Consumer,No
+1034,Document Scanner,Electronics,1,249.99,249.99,0,North America,Bob Smith,2024-02-07,Enterprise,No
+1035,Mesh Chair,Furniture,2,399.99,799.98,15,Asia Pacific,Carol White,2024-02-08,SMB,No
+1036,USB Microphone,Electronics,3,89.99,269.97,0,North America,Dave Brown,2024-02-09,Consumer,No
+1037,Cable Clips,Accessories,20,9.99,199.80,0,Europe,Alice Johnson,2024-02-10,Enterprise,No
+1038,Tablet Stand,Accessories,5,24.99,124.95,0,North America,Bob Smith,2024-02-11,SMB,Yes
+1039,Graphics Card,Electronics,1,549.99,549.99,5,Asia Pacific,Carol White,2024-02-12,Consumer,No
+1040,Label Maker,Appliances,2,39.99,79.98,0,North America,Dave Brown,2024-02-13,Enterprise,No
+1041,HDMI Switch,Electronics,4,29.99,119.96,0,Europe,Alice Johnson,2024-02-14,SMB,No
+1042,Standing Mat,Accessories,3,49.99,149.97,0,North America,Bob Smith,2024-02-15,Consumer,No
+1043,Noise Machine,Appliances,2,59.99,119.98,8,Asia Pacific,Carol White,2024-02-16,Enterprise,No
+1044,Conference Speaker,Electronics,1,199.99,199.99,12,North America,Dave Brown,2024-02-17,SMB,No
+1045,Wall Calendar,Accessories,10,14.99,149.90,0,Europe,Alice Johnson,2024-02-18,Consumer,No
+1046,Docking Station,Electronics,2,149.99,299.98,0,North America,Bob Smith,2024-02-19,Enterprise,Yes
+1047,LED Desk Light,Accessories,4,35.99,143.96,5,Asia Pacific,Carol White,2024-02-20,SMB,No
+1048,Surge Protector,Accessories,6,39.99,239.94,0,North America,Dave Brown,2024-02-21,Consumer,No
+1049,Ergonomic Footrest,Accessories,3,49.99,149.97,0,Europe,Alice Johnson,2024-02-22,Enterprise,No
+1050,Digital Clock,Accessories,5,24.99,124.95,0,North America,Bob Smith,2024-02-23,SMB,No

@@ -1,2 +1,274 @@
-# DataMind
-# DataMind Enterprise v3.0 ### Full-Stack AI Data Analysis Platform · Powered by Ollama (Local AI)  > Upload CSV or Excel files → Get automated cleaning, deep EDA, interactive charts, and a board-ready executive report — all powered by a local LLM running privately on your machine.  ---  ## Architecture  ``` datamind/ ├── backend/                    # FastAPI (Python) │   ├── main.py                 # App entry point + CORS │   ├── requirements.txt │   ├── routes/ │   │   ├── health.py           # GET /api/health — checks Ollama │   │   ├── upload.py           # POST /api/upload/ — CSV + Excel parsing │   │   ├── analysis.py         # EDA, correlations, pivot, forecast │   │   ├── ai.py               # Ollama streaming + report generation │   │   └── export.py           # CSV, Excel, HTML/PDF export │   ├── services/ │   │   ├── parser.py           # CSV + XLSX + XLS file parsing │   │   ├── analyzer.py         # Full statistical analysis engine │   │   └── cleaner.py          # Auto data cleaning │   └── utils/ │       └── brand.py            # Dataset type/brand detection │ └── frontend/                   # React + Vite + Tailwind     └── src/         ├── App.jsx         ├── store/index.js      # Zustand global state         ├── utils/         │   ├── api.js          # All backend API calls         │   └── charts.js       # Colors, formatters, brand images         ├── components/         │   ├── Sidebar.jsx         │   ├── Header.jsx         │   ├── ChartRenderer.jsx  # 10 chart types via Recharts         │   └── MDBlock.jsx     # Markdown renderer         └── pages/             ├── Login.jsx             ├── Layout.jsx             ├── HomePage.jsx             ├── UploadPage.jsx             ├── DashboardPage.jsx  # KPIs, charts, cleaning, data table             ├── EDAPage.jsx        # Distributions, correlations, outliers, pivot, forecast             ├── ReportPage.jsx     # Streaming AI report generation             └── ChatPage.jsx       # Streaming AI chat ```  ---  ## Prerequisites  | Tool         | Version  | Install | |-------------|---------|---------| | Python       | 3.10+   | [python.org](https://python.org) | | Node.js      | 18+     | [nodejs.org](https://nodejs.org) | | Ollama       | Latest  | [ollama.com](https://ollama.com) |  ---  ## Setup & Installation  ### Step 1 — Install & Start Ollama  ```bash # Download from https://ollama.com/download # Then start the server: ollama serve  # In a new terminal, pull a model: ollama pull llama3.2           # Fast, 2GB, recommended # OR ollama pull mistral            # 4GB, more capable # OR ollama pull llama3.1:8b        # 4.7GB, best quality ```  ### Step 2 — Backend Setup  ```bash cd datamind/backend  # Create virtual environment (recommended) python -m venv venv source venv/bin/activate       # Windows: venv\Scripts\activate  # Install dependencies pip install -r requirements.txt  # Start the server uvicorn main:app --reload --port 8000 ```  Backend runs at: **http://localhost:8000** API docs at: **http://localhost:8000/docs**  ### Step 3 — Frontend Setup  ```bash cd datamind/frontend  # Install dependencies npm install  # Start dev server npm run dev ```  Frontend runs at: **http://localhost:3000**  ---  ## Usage Flow  1. **Login** → Click "Sign In" (demo credentials pre-filled) 2. **Upload** → Drag & drop or click to browse CSV/Excel files 3. **Dashboard** → View auto-generated KPIs, charts, and cleaning report 4. **EDA** → Explore distributions, correlations, outliers, pivot tables, forecasts 5. **Report** → Click "Generate Full Report" → AI writes 6-section executive report via Ollama 6. **Chat** → Ask any question about your data — responses stream in real-time 7. **Export** → Download cleaned CSV, analyzed Excel, or PDF report  ---  ## Features  ### File Support - **CSV** — All delimiters, UTF-8/Latin-1/CP1252 encoding, quoted fields - **Excel XLSX** — Multi-sheet detection, date handling, styled headers - **Excel XLS** — Legacy format via xlrd, date conversion  ### Auto Data Cleaning - Duplicate row removal - Missing value imputation (mean for numeric, mode for categorical) - Whitespace trimming - Null/NaN/None standardization - Full audit log with counts  ### Statistical Analysis - Descriptive stats: count, mean, median, std, min, max, Q1, Q3, IQR, sum - Outlier detection via IQR method (1.5×IQR fences) - Skewness calculation - Coefficient of variation - Pearson correlation matrix - Per-column data quality assessment  ### Charts (10 types) | Type | Description | |------|-------------| | Bar | Category distributions with auto-coloring | | Line | Trend over row index | | Area | Filled area trend with gradient | | Pie | Composition breakdown with legend | | Scatter | Two-variable correlation | | Radar | Multi-metric profile | | Composed | Bar + Line overlay | | Histogram | Distribution bucketing | | Forecast | Historical + projected with confidence bands | | Box Plot | Visual IQR representation |  ### AI Report (6 sections via Ollama) 1. **Executive Summary** — Overview, critical findings, bottom line 2. **KPI Analysis** — Per-metric breakdown with business implications 3. **Trend & Pattern Analysis** — Patterns, distributions, anomalies, correlations 4. **Risk Assessment** — Risk matrix (🔴🟡🟢), data/business risks, mitigations 5. **Strategic Recommendations** — Immediate/short-term/long-term actions 6. **Forecast & Outlook** — Projections, scenario analysis (optimistic/base/pessimistic)  ### EDA Engine - Distribution stats table (13 columns) - Per-column histograms - Categorical frequency bars - Correlation matrix with color coding - Strong correlations list with strength labels - Outlier box plots - Outlier summary table with severity ratings - **Pivot Table** — Group-by with 6 aggregations - **Linear Forecast** — Statistical projection with R², RMSE, confidence intervals  ### Export - Cleaned dataset as **CSV** - Analyzed dataset as **Excel** (3 sheets: data, statistics, summary) - Executive report as **printable HTML → PDF** (browser print dialog)  ### Brand Detection (12 types) Netflix, Spotify, Amazon, Airbnb, Uber, Twitter/X, Finance/Stocks, Healthcare, E-Commerce/Sales, Human Resources, Supply Chain, Web Analytics — with matching Unsplash images  ---  ## Environment Variables  Create `backend/.env` (optional):  ```env OLLAMA_URL=http://localhost:11434 OLLAMA_MODEL=llama3.2 ```  ---  ## API Reference  | Method | Endpoint | Description | |--------|---------|-------------| | GET | `/api/health` | System + Ollama status | | POST | `/api/upload/` | Upload CSV/Excel file | | GET | `/api/upload/session/{id}` | Get session metadata | | GET | `/api/upload/session/{id}/rows` | Paginated row data | | GET | `/api/analysis/{id}/summary` | Analysis summary | | GET | `/api/analysis/{id}/correlations` | Correlation matrix | | GET | `/api/analysis/{id}/outliers` | Outlier analysis | | POST | `/api/analysis/pivot` | Pivot table | | GET | `/api/analysis/{id}/forecast/{col}` | Linear forecast | | GET | `/api/ai/models` | List Ollama models | | POST | `/api/ai/report/generate` | Generate full report | | POST | `/api/ai/report/section/{key}/stream` | Stream single section (SSE) | | POST | `/api/ai/chat/stream` | Streaming chat (SSE) | | POST | `/api/ai/insights/{id}` | Quick 5-point insights | | GET | `/api/export/{id}/csv` | Download cleaned CSV | | GET | `/api/export/{id}/excel` | Download analyzed Excel | | POST | `/api/export/report/html` | Printable HTML report |  ---  ## Troubleshooting  **Ollama not connecting** ```bash # Check if Ollama is running curl http://localhost:11434/api/tags  # Start it ollama serve ```  **No models available** ```bash ollama pull llama3.2 ollama list          # verify ```  **Excel parsing fails** ```bash pip install openpyxl xlrd ```  **CORS errors** Make sure frontend runs on `localhost:3000` — the backend allows this origin by default.  **Report generation timeout** Try a smaller/faster model: ```bash ollama pull phi3:mini    # Very fast, 2.3GB ollama pull gemma2:2b    # Fast, 1.6GB ```  ---  ## Tech Stack  | Layer | Technology | |-------|-----------| | Frontend | React 18, Vite, Tailwind CSS | | Charts | Recharts | | State | Zustand (with localStorage persistence) | | Backend | FastAPI, Python 3.10+ | | File Parsing | openpyxl (xlsx), xlrd (xls), csv (stdlib) | | Statistics | Pure Python + NumPy | | AI | Ollama (local LLM) | | Streaming | Server-Sent Events (SSE) |  ---
+# DataMind Enterprise v3.0
+### Full-Stack AI Data Analysis Platform · Powered by Ollama (Local AI)
+
+> Upload CSV or Excel files → Get automated cleaning, deep EDA, interactive charts, and a board-ready executive report — all powered by a local LLM running privately on your machine.
+
+---
+
+## Architecture
+
+```
+datamind/
+├── backend/                    # FastAPI (Python)
+│   ├── main.py                 # App entry point + CORS
+│   ├── requirements.txt
+│   ├── routes/
+│   │   ├── health.py           # GET /api/health — checks Ollama
+│   │   ├── upload.py           # POST /api/upload/ — CSV + Excel parsing
+│   │   ├── analysis.py         # EDA, correlations, pivot, forecast
+│   │   ├── ai.py               # Ollama streaming + report generation
+│   │   └── export.py           # CSV, Excel, HTML/PDF export
+│   ├── services/
+│   │   ├── parser.py           # CSV + XLSX + XLS file parsing
+│   │   ├── analyzer.py         # Full statistical analysis engine
+│   │   └── cleaner.py          # Auto data cleaning
+│   └── utils/
+│       └── brand.py            # Dataset type/brand detection
+│
+└── frontend/                   # React + Vite + Tailwind
+    └── src/
+        ├── App.jsx
+        ├── store/index.js      # Zustand global state
+        ├── utils/
+        │   ├── api.js          # All backend API calls
+        │   └── charts.js       # Colors, formatters, brand images
+        ├── components/
+        │   ├── Sidebar.jsx
+        │   ├── Header.jsx
+        │   ├── ChartRenderer.jsx  # 10 chart types via Recharts
+        │   └── MDBlock.jsx     # Markdown renderer
+        └── pages/
+            ├── Login.jsx
+            ├── Layout.jsx
+            ├── HomePage.jsx
+            ├── UploadPage.jsx
+            ├── DashboardPage.jsx  # KPIs, charts, cleaning, data table
+            ├── EDAPage.jsx        # Distributions, correlations, outliers, pivot, forecast
+            ├── ReportPage.jsx     # Streaming AI report generation
+            └── ChatPage.jsx       # Streaming AI chat
+```
+
+---
+
+## Prerequisites
+
+| Tool         | Version  | Install |
+|-------------|---------|---------|
+| Python       | 3.10+   | [python.org](https://python.org) |
+| Node.js      | 18+     | [nodejs.org](https://nodejs.org) |
+| Ollama       | Latest  | [ollama.com](https://ollama.com) |
+
+---
+
+## Setup & Installation
+
+### Step 1 — Install & Start Ollama
+
+```bash
+# Download from https://ollama.com/download
+# Then start the server:
+ollama serve
+
+# In a new terminal, pull a model:
+ollama pull llama3.2           # Fast, 2GB, recommended
+# OR
+ollama pull mistral            # 4GB, more capable
+# OR
+ollama pull llama3.1:8b        # 4.7GB, best quality
+```
+
+### Step 2 — Backend Setup
+
+```bash
+cd datamind/backend
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate       # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the server
+uvicorn main:app --reload --port 8000
+```
+
+Backend runs at: **http://localhost:8000**
+API docs at: **http://localhost:8000/docs**
+
+### Step 3 — Frontend Setup
+
+```bash
+cd datamind/frontend
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
+
+Frontend runs at: **http://localhost:3000**
+
+---
+
+## Usage Flow
+
+1. **Login** → Click "Sign In" (demo credentials pre-filled)
+2. **Upload** → Drag & drop or click to browse CSV/Excel files
+3. **Dashboard** → View auto-generated KPIs, charts, and cleaning report
+4. **EDA** → Explore distributions, correlations, outliers, pivot tables, forecasts
+5. **Report** → Click "Generate Full Report" → AI writes 6-section executive report via Ollama
+6. **Chat** → Ask any question about your data — responses stream in real-time
+7. **Export** → Download cleaned CSV, analyzed Excel, or PDF report
+
+---
+
+## Features
+
+### File Support
+- **CSV** — All delimiters, UTF-8/Latin-1/CP1252 encoding, quoted fields
+- **Excel XLSX** — Multi-sheet detection, date handling, styled headers
+- **Excel XLS** — Legacy format via xlrd, date conversion
+
+### Auto Data Cleaning
+- Duplicate row removal
+- Missing value imputation (mean for numeric, mode for categorical)
+- Whitespace trimming
+- Null/NaN/None standardization
+- Full audit log with counts
+
+### Statistical Analysis
+- Descriptive stats: count, mean, median, std, min, max, Q1, Q3, IQR, sum
+- Outlier detection via IQR method (1.5×IQR fences)
+- Skewness calculation
+- Coefficient of variation
+- Pearson correlation matrix
+- Per-column data quality assessment
+
+### Charts (10 types)
+| Type | Description |
+|------|-------------|
+| Bar | Category distributions with auto-coloring |
+| Line | Trend over row index |
+| Area | Filled area trend with gradient |
+| Pie | Composition breakdown with legend |
+| Scatter | Two-variable correlation |
+| Radar | Multi-metric profile |
+| Composed | Bar + Line overlay |
+| Histogram | Distribution bucketing |
+| Forecast | Historical + projected with confidence bands |
+| Box Plot | Visual IQR representation |
+
+### AI Report (6 sections via Ollama)
+1. **Executive Summary** — Overview, critical findings, bottom line
+2. **KPI Analysis** — Per-metric breakdown with business implications
+3. **Trend & Pattern Analysis** — Patterns, distributions, anomalies, correlations
+4. **Risk Assessment** — Risk matrix (🔴🟡🟢), data/business risks, mitigations
+5. **Strategic Recommendations** — Immediate/short-term/long-term actions
+6. **Forecast & Outlook** — Projections, scenario analysis (optimistic/base/pessimistic)
+
+### EDA Engine
+- Distribution stats table (13 columns)
+- Per-column histograms
+- Categorical frequency bars
+- Correlation matrix with color coding
+- Strong correlations list with strength labels
+- Outlier box plots
+- Outlier summary table with severity ratings
+- **Pivot Table** — Group-by with 6 aggregations
+- **Linear Forecast** — Statistical projection with R², RMSE, confidence intervals
+
+### Export
+- Cleaned dataset as **CSV**
+- Analyzed dataset as **Excel** (3 sheets: data, statistics, summary)
+- Executive report as **printable HTML → PDF** (browser print dialog)
+
+### Brand Detection (12 types)
+Netflix, Spotify, Amazon, Airbnb, Uber, Twitter/X, Finance/Stocks, Healthcare, E-Commerce/Sales, Human Resources, Supply Chain, Web Analytics — with matching Unsplash images
+
+---
+
+## Environment Variables
+
+Create `backend/.env` (optional):
+
+```env
+OLLAMA_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2
+```
+
+---
+
+## API Reference
+
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET | `/api/health` | System + Ollama status |
+| POST | `/api/upload/` | Upload CSV/Excel file |
+| GET | `/api/upload/session/{id}` | Get session metadata |
+| GET | `/api/upload/session/{id}/rows` | Paginated row data |
+| GET | `/api/analysis/{id}/summary` | Analysis summary |
+| GET | `/api/analysis/{id}/correlations` | Correlation matrix |
+| GET | `/api/analysis/{id}/outliers` | Outlier analysis |
+| POST | `/api/analysis/pivot` | Pivot table |
+| GET | `/api/analysis/{id}/forecast/{col}` | Linear forecast |
+| GET | `/api/ai/models` | List Ollama models |
+| POST | `/api/ai/report/generate` | Generate full report |
+| POST | `/api/ai/report/section/{key}/stream` | Stream single section (SSE) |
+| POST | `/api/ai/chat/stream` | Streaming chat (SSE) |
+| POST | `/api/ai/insights/{id}` | Quick 5-point insights |
+| GET | `/api/export/{id}/csv` | Download cleaned CSV |
+| GET | `/api/export/{id}/excel` | Download analyzed Excel |
+| POST | `/api/export/report/html` | Printable HTML report |
+
+---
+
+## Troubleshooting
+
+**Ollama not connecting**
+```bash
+# Check if Ollama is running
+curl http://localhost:11434/api/tags
+
+# Start it
+ollama serve
+```
+
+**No models available**
+```bash
+ollama pull llama3.2
+ollama list          # verify
+```
+
+**Excel parsing fails**
+```bash
+pip install openpyxl xlrd
+```
+
+**CORS errors**
+Make sure frontend runs on `localhost:3000` — the backend allows this origin by default.
+
+**Report generation timeout**
+Try a smaller/faster model:
+```bash
+ollama pull phi3:mini    # Very fast, 2.3GB
+ollama pull gemma2:2b    # Fast, 1.6GB
+```
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18, Vite, Tailwind CSS |
+| Charts | Recharts |
+| State | Zustand (with localStorage persistence) |
+| Backend | FastAPI, Python 3.10+ |
+| File Parsing | openpyxl (xlsx), xlrd (xls), csv (stdlib) |
+| Statistics | Pure Python + NumPy |
+| AI | Ollama (local LLM) |
+| Streaming | Server-Sent Events (SSE) |
+
+---

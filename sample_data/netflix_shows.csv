@@ -1,0 +1,31 @@
+show_id,type,title,director,cast,country,date_added,release_year,rating,duration,listed_in,description
+s1,Movie,The Dark Knight,Christopher Nolan,"Christian Bale, Heath Ledger, Aaron Eckhart",United States,2023-01-15,2008,PG-13,152 min,Action & Adventure,When Batman faces the Joker chaos erupts in Gotham.
+s2,TV Show,Breaking Bad,Vince Gilligan,"Bryan Cranston, Aaron Paul",United States,2023-01-20,2008,TV-MA,5 Seasons,Crime TV Shows,A chemistry teacher turns to manufacturing meth.
+s3,Movie,Parasite,Bong Joon-ho,"Song Kang-ho, Lee Sun-kyun",South Korea,2023-02-01,2019,R,132 min,International Movies,A poor family schemes to become employed by a wealthy family.
+s4,TV Show,Stranger Things,The Duffer Brothers,"Millie Bobby Brown, Finn Wolfhard",United States,2023-02-10,2016,TV-14,4 Seasons,Kids' TV,A group of friends encounter supernatural forces.
+s5,Movie,Inception,Christopher Nolan,"Leonardo DiCaprio, Joseph Gordon-Levitt",United States,2023-02-15,2010,PG-13,148 min,Action & Adventure,A thief who steals corporate secrets through dream-sharing technology.
+s6,TV Show,The Crown,Peter Morgan,"Claire Foy, Olivia Colman",United Kingdom,2023-03-01,2016,TV-MA,5 Seasons,British TV Shows,The story of Queen Elizabeth II's reign.
+s7,Movie,Interstellar,Christopher Nolan,"Matthew McConaughey, Anne Hathaway",United States,2023-03-10,2014,PG-13,169 min,Sci-Fi & Fantasy,A team of explorers travel through a wormhole in space.
+s8,TV Show,Money Heist,Álex Pina,"Álvaro Morte, Itziar Ituño",Spain,2023-03-20,2017,TV-MA,5 Seasons,International TV Shows,A criminal mastermind recruits eight robbers.
+s9,Movie,Get Out,Jordan Peele,"Daniel Kaluuya, Allison Williams",United States,2023-04-01,2017,R,104 min,Horror Movies,A Black man uncovers disturbing secrets at his girlfriend's family estate.
+s10,TV Show,Squid Game,Hwang Dong-hyuk,"Lee Jung-jae, Park Hae-soo",South Korea,2023-04-15,2021,TV-MA,1 Season,International TV Shows,Contestants compete in deadly children's games for a cash prize.
+s11,Movie,1917,Sam Mendes,"George MacKay, Dean-Charles Chapman",United Kingdom,2023-05-01,2019,R,119 min,Action & Adventure,Two soldiers are sent on a dangerous mission during World War I.
+s12,TV Show,The Witcher,Lauren Schmidt Hissrich,"Henry Cavill, Anya Chalotra",United States,2023-05-10,2019,TV-MA,3 Seasons,Fantasy TV Shows,Geralt of Rivia a solitary monster hunter.
+s13,Movie,Bird Box,Susanne Bier,"Sandra Bullock, Trevante Rhodes",United States,2023-05-20,2018,R,124 min,Horror Movies,A mother must blindfold her children to survive.
+s14,TV Show,Dark,Baran bo Odar,"Louis Hofmann, Karoline Eichhorn",Germany,2023-06-01,2017,TV-MA,3 Seasons,International TV Shows,A time travel conspiracy unfolds in a German town.
+s15,Movie,Knives Out,Rian Johnson,"Daniel Craig, Ana de Armas",United States,2023-06-10,2019,PG-13,130 min,Mysteries,A detective investigates the death of a family patriarch.
+s16,TV Show,Ozark,Bill Dubuque,"Jason Bateman, Laura Linney",United States,2023-06-20,2017,TV-MA,4 Seasons,Crime TV Shows,A financial advisor launders money for a drug cartel.
+s17,Movie,Soul,Pete Docter,"Jamie Foxx, Tina Fey",United States,2023-07-01,2020,PG,100 min,Children & Family Movies,A jazz musician has an unexpected journey to the Soul World.
+s18,TV Show,Bridgerton,Chris Van Dusen,"Phoebe Dynevor, Regé-Jean Page",United States,2023-07-15,2020,TV-MA,3 Seasons,Romantic TV Shows,The Bridgerton siblings pursue love and happiness in Regency London.
+s19,Movie,Roma,Alfonso Cuarón,"Yalitza Aparicio, Marina de Tavira",Mexico,2023-08-01,2018,R,135 min,International Movies,A year in the life of a middle-class family in Mexico City.
+s20,TV Show,The Umbrella Academy,Steve Blackman,"Elliot Page, Tom Hopper",United States,2023-08-10,2019,TV-14,3 Seasons,Sci-Fi TV Shows,A dysfunctional family of superheroes reunite.
+s21,Movie,Mank,David Fincher,"Gary Oldman, Amanda Seyfried",United States,2023-08-20,2020,R,131 min,Dramas,1930s Hollywood is reevaluated through the eyes of Citizen Kane screenwriter Herman J. Mankiewicz.
+s22,TV Show,Emily in Paris,Darren Star,"Lily Collins, Philippine Leroy-Beaulieu",France,2023-09-01,2020,TV-MA,4 Seasons,Romantic TV Shows,An American woman gets an unexpected job in Paris.
+s23,Movie,The Irishman,Martin Scorsese,"Robert De Niro, Al Pacino",United States,2023-09-10,2019,R,209 min,Dramas,A hitman recalls his possible involvement with the murder of Jimmy Hoffa.
+s24,TV Show,Mindhunter,David Fincher,"Jonathan Groff, Holt McCallany",United States,2023-09-20,2017,TV-MA,2 Seasons,Crime TV Shows,FBI agents build the science of criminal profiling.
+s25,Movie,Marriage Story,Noah Baumbach,"Adam Driver, Scarlett Johansson",United States,2023-10-01,2019,R,137 min,Dramas,A stage director and his wife struggle through a grueling divorce.
+s26,TV Show,You,Greg Berlanti,"Penn Badgley, Victoria Pedretti",United States,2023-10-15,2018,TV-MA,4 Seasons,Crime TV Shows,A bookstore manager uses social media to pursue his obsession.
+s27,Movie,The Trial of the Chicago 7,Aaron Sorkin,"Eddie Redmayne, Alex Sharp",United States,2023-11-01,2020,R,129 min,Dramas,The story of seven defendants charged with conspiracy.
+s28,TV Show,Lupin,George Kay,"Omar Sy, Ludivine Sagnier",France,2023-11-10,2021,TV-MA,3 Seasons,International TV Shows,A thief is inspired by master of disguise Arsene Lupin.
+s29,Movie,The Power of the Dog,Jane Campion,"Benedict Cumberbatch, Kirsten Dunst",New Zealand,2023-11-20,2021,R,126 min,Dramas,A domineering rancher is threatened by his brother's wife and son.
+s30,TV Show,Cobra Kai,Josh Heald,"William Zabka, Ralph Macchio",United States,2023-12-01,2018,TV-14,5 Seasons,Action & Adventure,The Karate Kid story continues 30 years later.
