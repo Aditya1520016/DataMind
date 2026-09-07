@@ -45,7 +45,7 @@ export default function Login() {
           <p className="text-gray-400 text-sm mb-7">AI-powered data analysis · Runs locally with Ollama</p>
 
           <div className="space-y-4 mb-6">
-            {[['Email','aditya@datamind.io','email'],['Password','••••••••','password']].map(([label, val, type]) => (
+            {[['Email','aditya774tripathi@gmail.com','email'],['Password','••••••••','password']].map(([label, val, type]) => (
               <div key={label}>
                 <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{label}</label>
                 <input type={type} defaultValue={val} className="input" />
